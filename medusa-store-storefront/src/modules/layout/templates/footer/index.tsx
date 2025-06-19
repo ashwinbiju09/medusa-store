@@ -2,6 +2,7 @@
 
 import { FaInstagram } from "react-icons/fa"
 import Link from "next/link"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const categories = [
   { name: "Bangles", href: "#" },
@@ -12,23 +13,23 @@ const categories = [
 ]
 
 const policies = [
-  { name: "Terms & Conditions", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-  { name: "Shipping Policy", href: "#" },
+  { name: "Terms & Conditions", href: "/terms" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Shipping Policy", href: "/shipping-policy" },
   { name: "Cancellation Policy", href: "#" },
-  { name: "Return & Refund Policy", href: "#" },
+  { name: "Return & Refund Policy", href: "/return-policy" },
 ]
 
 const help = [
-  { name: "Contact Us", href: "#" },
-  { name: "Feedback", href: "#" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Feedback", href: "/feedback" },
 ]
 
 const Footer = () => {
   return (
     <footer className="bg-gray-50 text-gray-700 border-t border-gray-200">
       <div className="w-full px-4 sm:px-6 lg:px-8 py-16 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-12">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-start gap-12">
           {/* Left Section */}
           <div className="flex flex-col gap-4 w-full lg:w-1/3">
             <h2 className="text-2xl font-bold text-green-900 font-cursive">
@@ -46,6 +47,25 @@ const Footer = () => {
               <FaInstagram />
               <span className="text-sm">Instagram</span>
             </a>
+
+            {/* Address / Contact Info */}
+            <div className="text-sm text-gray-600 leading-relaxed mt-4">
+              <p>
+                <span className="font-medium">Address:</span> Erode, Tamil Nadu
+                - 638112
+              </p>
+              <p>
+                <span className="font-medium">Email:</span>{" "}
+                aadhiyabridalhouse@gmail.com
+              </p>
+              <p>
+                <span className="font-medium">Contact:</span>{" "}
+                contact@aadhiyabridaljewels.in
+              </p>
+              <p>
+                <span className="font-medium">Phone:</span> +91 9361406184
+              </p>
+            </div>
           </div>
 
           {/* Right Section: 3 Columns (Quick Links, Policies, Support) */}
@@ -77,12 +97,12 @@ const Footer = () => {
               <ul className="space-y-2 text-md text-gray-600">
                 {policies.map((p) => (
                   <li key={p.name}>
-                    <Link
+                    <LocalizedClientLink
                       href={p.href}
                       className="hover:text-green-700 transition-colors"
                     >
                       {p.name}
-                    </Link>
+                    </LocalizedClientLink>
                   </li>
                 ))}
               </ul>
